@@ -1,0 +1,25 @@
+{
+   " cakes":[
+    {
+        "title":"Chocolate Cake",
+        "img":"gptChocolate.png",
+        "category":"Premium",
+        "price":"300"  
+      },
+      {
+            
+        "title":"Strabery Cake",
+        "img":"gptStrawberry.png",
+        "category":"Premium",
+        "price":"350"  
+      },
+      {
+            
+        "title":"Mango Cake",
+        "img":"mango.png",
+        "category":"General",
+        "price":"150"  
+      }
+
+    ]
+}

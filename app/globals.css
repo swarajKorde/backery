@@ -10,12 +10,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-prime:#d3d3d3;
+  --color-second:#77D39D;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    
   }
 }
 
@@ -23,4 +26,26 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Red scrollbar, minimal look */
+.red-scrollbar::-webkit-scrollbar {
+  width: 6px; /* thin bar */
+   margin-left: 4px; /* optional, but works in some browsers */
+}
+
+.red-scrollbar::-webkit-scrollbar-thumb {
+  background-color: pink; /* the bar color */
+  border-radius: 9999px; /* fully rounded ends */
+}
+
+/* Remove track completely */
+.red-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* For Firefox */
+.red-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: yellow transparent;
 }
