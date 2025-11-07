@@ -35,35 +35,43 @@ const page = () => {
     <div className='h-screen w-screen bg-prime flex flex-col md:flex-row md:justify-center md:items-center md:gap-4 p-4'>
       {/* Header */}
       <div >
-      <div className='flex justify-around '>
-        <div className='flex sticky top-0 w-full md:w-auto z-10'>
-         <Link href="/"> <FaArrowLeft className='mt-4 md:mt-10 text-3xl mx-2 text-black' /> </Link>
-          {/* <h1 className='text-black font-bold text-2xl mt-4 md:mt-10'>Home</h1> */}
+        <div className='flex justify-around '>
+          <div className='flex sticky top-0 w-full md:w-auto z-10'>
+            <Link href="/"> <FaArrowLeft className='mt-4 md:mt-10 text-3xl mx-2 text-black' /> </Link>
+            {/* <h1 className='text-black font-bold text-2xl mt-4 md:mt-10'>Home</h1> */}
+          </div>
+          <div className='flex justify-center items-center sticky top-0 w-full md:w-auto z-10'>
+            <FaCartArrowDown className='mt-4 md:mt-10 text-3xl mx-2 text-black' />
+            <h1 className='text-black font-bold text-2xl mt-4 md:mt-10'>Your Cart</h1>
+          </div>
         </div>
-        <div className='flex justify-center items-center sticky top-0 w-full md:w-auto z-10'>
-          <FaCartArrowDown className='mt-4 md:mt-10 text-3xl mx-2 text-black' />
-          <h1 className='text-black font-bold text-2xl mt-4 md:mt-10'>Your Cart</h1>
-        </div>
-      </div>
-      {/* Cart items */}
-      <div className='flex-1 flex flex-col items-start gap-4 mt-4 md:mt-10 overflow-y-auto pr-2 md:pr-4 h-[60vh] md:h-[80vh] red-scrollbar w-full md:w-[100%]'>
-        {cart.map((item, index) => (
-          <CartElement
-            key={index}
-            ProductImage={item.img}
-            ProductName={item.title}
-            ProductPrice={item.price}
-            onRemove={() => removeFromCart(index)}
-          />
-        ))}
-      </div>
+        {/* Cart items */}
+
+
+
+        {cart && cart.length > 0 ? (
+          <div className='flex-1 flex flex-col items-start gap-4 mt-4 md:mt-10 overflow-y-auto pr-2 md:pr-4 h-[60vh] md:h-[80vh] red-scrollbar w-full md:w-[100%]'>
+            {cart.map((item, index) => (
+              <CartElement
+                key={index}
+                ProductImage={item.img}
+                ProductName={item.title}
+                ProductPrice={item.price}
+                onRemove={() => removeFromCart(index)}
+              />
+            ))}
+          </div>
+        ) : (
+          <p className='text-gray-500 text-lg text-center mt-6 md:mt-10'>Your cart is empty.</p>
+        )}
 
       </div>
 
 
 
       {/* Side summary box */}
-      <div className='w-full md:w-96 bg-red-300 mt-4 md:mt-25 rounded-3xl py-4 px-3 sticky top-5 self-start'>
+      {cart&&cart.length>0&&(
+        <div className='w-full md:w-96 bg-red-300 mt-4 md:mt-25 rounded-3xl py-4 px-3 sticky top-5 self-start'>
         <h1 className='font-bold text-3xl text-white text-center'>Your Items</h1>
         <div className='px-5 mt-6 flex flex-col gap-4'>
           <div className='flex justify-between'>
@@ -84,6 +92,8 @@ const page = () => {
           </div>
         </div>
       </div>
+      )}
+      
     </div>
 
   )

@@ -57,7 +57,7 @@ const Upper = () => {
                 {/* Order button */}
                 <motion.div
                     whileHover={{ rotate: 2, scale: 1.05 }}
-                    className='flex items-center lg:rounded-3xl w-fit mt-3 px-4 py-2 cursor-pointer bg-amber-300 hover:bg-amber-400'
+                    className='flex items-center lg:rounded-3xl active:bg-green-500 active:scale-80 w-fit mt-3 px-4 py-2 cursor-pointer bg-amber-300 hover:bg-amber-400'
                     onClick={handleCart}
                 >
                     <FaCartArrowDown className='mx-2 text-2xl md:text-3xl' />
